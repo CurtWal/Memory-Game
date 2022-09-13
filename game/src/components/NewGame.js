@@ -16,11 +16,13 @@ export class NewGame extends Component {
     const { visible } = this.state;
     return (
       <div className="menu-item">
+
         <button className="btn btn-play"
           onClick={this.handleClick}
           style={{ visibility: visible ? "visible" : "hidden" }}>
           Play
         </button>
+        
       </div >
     );
   }

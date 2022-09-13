@@ -90,6 +90,7 @@ export class GameBoard extends Component {
     if (won) {
       this.props.won();
     }
+    
   };
 
 
@@ -105,7 +106,7 @@ export class GameBoard extends Component {
           flip={this.handleFlip} />
       ))
     ) : (
-        <p>Loading cards...</p>
+        <p style={{color: "white"}}>Loading cards...</p>
       );
 
   render() {

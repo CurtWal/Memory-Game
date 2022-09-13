@@ -25,9 +25,9 @@ export class MemoryCard extends Component {
             key="back"
             style={{
               backgroundImage: `url(${imgUrl})`,
-              backgroundSize: "contain",
+              backgroundSize: "150px",
               backgroundRepeat: "no-repeat", backgroundPosition: "center",
-              backgroundColor: found ? "green" : "#3700B3",
+              backgroundColor: found ? "green" : "",
               cursor : found ? "" : "pointer",
             }}
           >
@@ -39,7 +39,7 @@ export class MemoryCard extends Component {
 }
 
 const cardBack = {
-  background: "#3700B3",
+  background: "#e71989"
 }
 
 

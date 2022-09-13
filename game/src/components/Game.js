@@ -2,30 +2,29 @@ import React, { Component } from "react";
 import GameBoard from "./GameBoard";
 import NewGame from "./NewGame";
 import PlayAgain from './PlayAgain';
-
 export default class Game extends Component {
   
   constructor(props) {
     super(props)
-  
     this.state = {
        newGame: false,
        won: false,
        cards: [],
-       clicks: 0
+       clicks: 0,
+       amount: ''
     }
   }
 
-  countClicks = () => {
+  countClicks = (e) => {
     this.setState((prevState) => ({
         clicks : prevState.clicks + 1
     }));
   }
 
   generateDeck = () => {
-    let amount = 10;
+    // let amount = 10;
     let cards = [];
-    for (let i = 1; i < amount + 1; i++) {
+    for (let i = 1; i < this.state.amount + 1; i++) {
       let id = createId();
       let id2 = createId();
       let rand = Math.floor(Math.random() * 300) + 1;
@@ -60,7 +59,7 @@ export default class Game extends Component {
     return a;
   }
 
-  resetGame = () => {
+  resetGame = (e) => {
     this.setState({
       newGame: false,
       won: false,
@@ -69,6 +68,7 @@ export default class Game extends Component {
     }, () => {
       this.initGame()
     });
+    
   }
 
   hasWon = () => {
@@ -77,11 +77,11 @@ export default class Game extends Component {
     });
   };
 
-  initGame = () => {
+  initGame = (e) => {
     this.generateDeck();
-    this.setState({
+     this.setState({
       newGame: true
-    });
+    },console.log('weloc'));
   };
   render() {
     const { cards, newGame, won, clicks } = this.state;
@@ -98,7 +98,15 @@ export default class Game extends Component {
         <div className="message">
             {won && (<h2>You win!</h2>)}
           </div>
-          <NewGame play={this.initGame} />
+          <NewGame amount={this.state.amount} play={this.initGame} />
+          <form >
+          <select onChange={(e)=> this.setState({amount: e.target.value})}>
+            <option value='none'>none</option>
+          <option value="1">10</option>
+          <option value="4.5">8</option>
+          <option value="3.5">6</option>
+          </select>
+        </form>
           {won && (<PlayAgain again={this.resetGame} />)}
         </div>
       </div>

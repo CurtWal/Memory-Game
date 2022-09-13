@@ -33,14 +33,19 @@ h2{
 }
 .btn {
   padding: 12px 25px;
-  background: #035A96;
-  border: 1px solid #035A96;
+  background: lightgreen;
+  border: 2px solid darkgreen;
+  border-radius: 5px;
   color: #fff;
   transition: all .4s ease-in;
 }
+div.card{
+  background: #1B1B1B;
+}
+
 .btn:hover{
-  background: rgb(40,111,251, 0.5);
-  border: 1px solid rgb(40,111,251, 0.5);
+  background: darkgreen;
+  border: 2px solid lightgreen;
   cursor: pointer;
   transform: scale(1.1);
 }
