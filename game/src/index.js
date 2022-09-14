@@ -4,16 +4,22 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Auth0Provider } from "@auth0/auth0-react";
-
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Score from './route/Score'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Auth0Provider
-  domain="dev-959us5-6.us.auth0.com"
-  clientId="t9ermdbyX5Zbmr6MaQL4XjbgFoIBxhrm"
+  domain={process.env.REACT_APP_AUTH_DOMAIN}
+  clientId={process.env.REACT_APP_AUTH_ID}
   redirectUri={window.location.origin}
 >
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+    <Routes>
+    <Route exact path='/' element={<App />}/>
+    <Route path='/score' element={<Score />}/>
+    </Routes>
+    </BrowserRouter>
   </React.StrictMode>
   </Auth0Provider>
 );

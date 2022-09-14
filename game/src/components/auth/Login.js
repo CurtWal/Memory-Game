@@ -5,7 +5,6 @@ export default function Login() {
   const { loginWithRedirect } = useAuth0();
   return (
     <div>
-        <h1 style={{color: "white"}}>Please login to play game</h1>
       <button onClick={() => loginWithRedirect()}>Login</button>
     </div>
   );

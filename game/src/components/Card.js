@@ -3,12 +3,12 @@ import ReactCardFlip from "react-card-flip";
 
 export default class Card extends Component {
   state = {
-    isFlipped: false
+    isFlipped: false,
   };
 
-  handleClick = e => {
+  handleClick = (e) => {
     e.preventDefault();
-    this.setState(prevState => ({ isFlipped: !prevState.isFlipped }));
+    this.setState((prevState) => ({ isFlipped: !prevState.isFlipped }));
   };
 
   render() {
