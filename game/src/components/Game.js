@@ -102,7 +102,7 @@ export default class Game extends Component {
           <NewGame select={this.handleSelect} play={this.initGame} />
 
           {won && (
-            <PlayAgain again={this.resetGame} show={this.state.show}select={this.handleSelect} />
+            <PlayAgain again={this.resetGame} clicks={this.state.clicks} amount={this.state.amount} show={this.state.show}select={this.handleSelect} />
           )}
         </div>
         <div className="board-container">

@@ -6,13 +6,13 @@ import Game from "./Game";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import {Navbar, NavItem} from "react-bootstrap";
-import { Link, Outlet } from "react-router-dom";
+import { Link} from "react-router-dom";
 
 export default function Display() {
   const { isAuthenticated } = useAuth0();
   const [img, setImg] = useState([]);
   const [newImg, setNewImg] = useState([]);
-  const [score, setScore] = useState([]);
+  // const [score, setScore] = useState([]);
   const getRand = async () => {
     const API = "http://localhost:3002/get-pokemon";
     const res = await axios.get(API);
@@ -23,18 +23,9 @@ export default function Display() {
     const res = await axios.get(API);
     setNewImg(res.data);
   }
-  const getScore = async() => {
-    const API = `localhost:3002/score`;
-    let res = await axios.get(API);
-    setScore(res.data);
-  }
-  const addNewScore = (newScore) => {
-    setScore([...score, newScore]);
-  }
   useEffect(() => {
     getRand();
     getPokeball();
-    getScore();
   });
   return (
     <>
@@ -43,7 +34,7 @@ export default function Display() {
           <Navbar collapseOnSelect expand="lg" style={{backgroundColor: '#e71989'}} variant="dark">
         <Navbar.Brand>Pokemon Memory</Navbar.Brand>
         <NavItem>
-        <Link to='/score' className='nav-link' >Scores</Link>
+        <Link to='/score' className='nav-link' style={{color: 'white', marginRight: '15px'}}>Scores</Link>
         </NavItem>
         <NavItem>
         <Logout/>

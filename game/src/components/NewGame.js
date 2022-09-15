@@ -28,12 +28,12 @@ export class NewGame extends Component {
         <form style={{ visibility: visible ? "visible" : "hidden" }}>
           <select onChange={this.handleChange}>
             <option value="none">none</option>
-            <option value="1">20 cards</option>
-            <option value="6.4">12 cards</option>
-            <option value="5.5">10 cards</option>
-            <option value="4.5">8 cards</option>
-            <option value="3.5">6 cards</option>
-            <option value="2.5">4 cards</option>
+            <option value="10.0">10 pairs</option>
+            <option value="6.0">6 pairs</option>
+            <option value="5.0">5 pairs</option>
+            <option value="4.0">4 pairs</option>
+            <option value="3.0">3 pairs</option>
+            <option value="2.0">2 pairs</option>
           </select>
         </form>
       </div>
