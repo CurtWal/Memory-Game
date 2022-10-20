@@ -11,7 +11,7 @@ export default class Game extends Component {
       cards: [],
       clicks: 0,
       amount: "",
-      show: false
+      show: false,
     };
   }
 
@@ -49,7 +49,7 @@ export default class Game extends Component {
       cards: cards,
     });
   };
-  // pass the amount state to the child and in the child when the user changes the amount pass it 
+  // pass the amount state to the child and in the child when the user changes the amount pass it
   //  back up to the parent
   handleSelect = (select) => {
     this.setState({
@@ -83,7 +83,7 @@ export default class Game extends Component {
   hasWon = () => {
     this.setState({
       won: true,
-      show: true
+      show: true,
     });
   };
   // when the user clicks play start the page and shuffle the cards
@@ -98,11 +98,19 @@ export default class Game extends Component {
     return (
       <div>
         <div className="menu">
-          <div className="message">{won && <h2>You win! Total card flips: {clicks}</h2>}</div>
+          <div className="message">
+            {won && <h2>You win! Total card flips: {clicks}</h2>}
+          </div>
           <NewGame select={this.handleSelect} play={this.initGame} />
 
           {won && (
-            <PlayAgain again={this.resetGame} clicks={this.state.clicks} amount={this.state.amount} show={this.state.show}select={this.handleSelect} />
+            <PlayAgain
+              again={this.resetGame}
+              clicks={this.state.clicks}
+              amount={this.state.amount}
+              show={this.state.show}
+              select={this.handleSelect}
+            />
           )}
         </div>
         <div className="board-container">

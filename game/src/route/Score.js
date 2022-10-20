@@ -8,7 +8,7 @@ export default function Score() {
   const [score, setScore] = useState([]);
   const [show, setShow] = useState(false);
   const getScore = async () => {
-    const API = `http://localhost:3002/score`;
+    const API = `${process.env.REACT_APP_API}score`;
     let res = await axios.get(API);
     setScore(res.data);
   };
@@ -17,7 +17,7 @@ export default function Score() {
 
   const resetScore = async () => {
     closeModal();
-    const URL = `http://localhost:3002/delete-score`;
+    const URL = `${process.env.REACT_APP_API}delete-score`;
     let res = await axios.delete(URL);
     setScore(res.data);
   };
@@ -78,7 +78,15 @@ export default function Score() {
           <h3 style={{ color: "white", textAlign: "center" }}>No Scores</h3>
         </div>
       ) : (
-        <div style={{ display: "flex",flexDirection: "column",textAlign: "center",alignItems: 'center', color: "white" }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            textAlign: "center",
+            alignItems: "center",
+            color: "white",
+          }}
+        >
           {score.map((scores) => (
             <Card style={{ width: "18rem" }}>
               <Card.Body>
@@ -86,7 +94,7 @@ export default function Score() {
                   <p>{scores.name}</p>
                 </Card.Title>
                 <Card.Text>
-                  <p>Score: {scores.score}</p>
+                  <p>Score: {scores.score} clicks</p>
                   <p>Card Amount: {scores.cards}</p>
                 </Card.Text>
               </Card.Body>

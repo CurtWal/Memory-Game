@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 import Navbar from "react-bootstrap/Navbar";
 
 export default class Header extends Component {
@@ -6,9 +6,9 @@ export default class Header extends Component {
     return (
       <div>
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Navbar.Brand>&copy; Curtrick Walton</Navbar.Brand>
-      </Navbar>
+          <Navbar.Brand>&copy; Curtrick Walton</Navbar.Brand>
+        </Navbar>
       </div>
-    )
+    );
   }
 }
