@@ -26,7 +26,7 @@ export default function Display() {
   useEffect(() => {
     getRand();
     getPokeball();
-  });
+  }, []);
   return (
     <>
       {isAuthenticated ? (
