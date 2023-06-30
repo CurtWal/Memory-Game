@@ -11,7 +11,7 @@ export default class PlayAgain extends Component {
   }
   postScore = async (e) => {
     e.preventDefault();
-    const URL = `{REACT_APP_API}new-score`;
+    const URL = `${process.env.REACT_APP_API}new-score`;
     let newScore = {
       name: e.target.name.value,
       score: this.props.clicks,
